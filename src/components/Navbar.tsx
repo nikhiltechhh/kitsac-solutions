@@ -52,7 +52,7 @@ export default function Navbar() {
   return (
     <>
       {/* Top bar */}
-      <div className="bg-brand-dark text-foreground/70 text-xs py-2 hidden md:block" style={{ backgroundColor: 'hsl(220 20% 10%)' }}>
+      <div className="text-xs py-2 hidden md:block" style={{ backgroundColor: 'hsl(220 20% 10%)', fontFamily: 'Oswald, sans-serif', letterSpacing: '0.06em' }}>
         <div className="container mx-auto flex items-center justify-end gap-6">
           <a href="mailto:Contact@kitsacitsolutions.com" className="flex items-center gap-1.5 text-white/70 hover:text-white transition-colors">
             <Mail className="w-3 h-3" />
