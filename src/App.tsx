@@ -3,10 +3,36 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
+
+// Products
+import TenMinDelivery from "./pages/products/TenMinDelivery";
+import BachelorWallet from "./pages/products/BachelorWallet";
+import StoreBilling from "./pages/products/StoreBilling";
+
+// Services
+import Pharmaceuticals from "./pages/services/Pharmaceuticals";
+import ProjectOutsourcing from "./pages/services/ProjectOutsourcing";
+import ITConsulting from "./pages/services/ITConsulting";
+import BPOServices from "./pages/services/BPOServices";
+import Internship from "./pages/services/Internship";
 
 const queryClient = new QueryClient();
+
+function Layout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen flex flex-col">
+      <Navbar />
+      <div className="flex-1">{children}</div>
+      <Footer />
+    </div>
+  );
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -15,8 +41,22 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="/" element={<Layout><Index /></Layout>} />
+          <Route path="/careers" element={<Layout><Careers /></Layout>} />
+          <Route path="/contact" element={<Layout><Contact /></Layout>} />
+
+          {/* Products */}
+          <Route path="/products/ten-min-delivery" element={<Layout><TenMinDelivery /></Layout>} />
+          <Route path="/products/bachelor-wallet" element={<Layout><BachelorWallet /></Layout>} />
+          <Route path="/products/store-billing" element={<Layout><StoreBilling /></Layout>} />
+
+          {/* Services */}
+          <Route path="/services/pharmaceuticals" element={<Layout><Pharmaceuticals /></Layout>} />
+          <Route path="/services/project-outsourcing" element={<Layout><ProjectOutsourcing /></Layout>} />
+          <Route path="/services/it-consulting" element={<Layout><ITConsulting /></Layout>} />
+          <Route path="/services/bpo-services" element={<Layout><BPOServices /></Layout>} />
+          <Route path="/services/internship" element={<Layout><Internship /></Layout>} />
+
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
