@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400&family=Barlow+Condensed:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -68,22 +68,26 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Barlow', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-weight: 400;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
-    font-weight: 800;
-    letter-spacing: 0.01em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
   }
 }
 
 @layer utilities {
   .font-display {
-    font-family: 'Barlow Condensed', 'Barlow', sans-serif;
-    font-weight: 900;
-    letter-spacing: 0.02em;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
   }
 
   .text-brand-blue {
@@ -138,14 +142,55 @@
   }
 
   .nav-link {
-    font-family: 'Barlow', sans-serif;
-    font-weight: 600;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
     font-size: 0.875rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
     transition: color 0.2s;
   }
 }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(32px);
+  transition: opacity 0.65s cubic-bezier(0.22, 1, 0.36, 1), transform 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger delay helpers */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
 
 /* Ticker animation */
 @keyframes ticker {
