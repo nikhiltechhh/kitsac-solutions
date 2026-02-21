@@ -67,10 +67,27 @@ export default function Navbar() {
 
       {/* Main nav */}
       <nav className={`sticky top-0 z-50 bg-white transition-all duration-300 ${scrolled ? "shadow-nav border-b border-border" : "border-b border-border"}`}>
-        <div className="container mx-auto flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <img src={logo} alt="KITSAC IT Solutions" className="h-10 md:h-12 w-auto" />
+        <div className="container mx-auto flex items-center justify-between h-20 md:h-24 lg:h-28">
+
+          {/* Logo — bigger on all breakpoints */}
+          <Link to="/" className="flex items-center gap-3 flex-shrink-0 py-2">
+            <img
+              src={logo}
+              alt="KITSAC IT Solutions"
+              className="
+                h-24        /* mobile: 56px */
+                sm:h-16     /* sm: 64px */
+                md:h-20     /* md: 80px */
+                lg:h-24     /* lg: 96px */
+                w-auto
+                object-contain
+                max-w-[200px]
+                sm:max-w-[240px]
+                md:max-w-[280px]
+                lg:max-w-[320px]
+                transition-all duration-300
+              "
+            />
           </Link>
 
           {/* Desktop nav */}

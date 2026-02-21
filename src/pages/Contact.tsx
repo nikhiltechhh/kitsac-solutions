@@ -50,7 +50,9 @@ export default function Contact() {
                   <div>
                     <p className="font-bold uppercase tracking-wider text-sm text-foreground mb-1">Location</p>
                     <p className="text-muted-foreground text-sm">
-                      Hyderabad, Telangana, India — 500001
+                    KITSAC IT Solutions Pvt Ltd
+4th floor, plot no 459, 100 Feet Rd, beside ysr statue, Ayyappa Society, Chanda Naik Nagar, Madhapur, Hyderabad, Telangana 500081
+
                     </p>
                   </div>
                 </div>
@@ -67,12 +69,18 @@ export default function Contact() {
               </div>
 
               {/* Map placeholder */}
-              <div className="rounded-xl overflow-hidden border border-border h-48 bg-muted flex items-center justify-center">
-                <div className="text-center text-muted-foreground">
-                  <MapPin className="w-8 h-8 mx-auto mb-2" />
-                  <p className="text-sm font-semibold">Hyderabad, Telangana</p>
-                </div>
-              </div>
+<div className="rounded-xl overflow-hidden border border-border h-48">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.1554167171316!2d78.38820567544626!3d17.452273900932013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb91005237436f%3A0x7f4095d753aa9df5!2sKITSAC%20IT%20Solutions%20Pvt%20Ltd!5e0!3m2!1sen!2sin!4v1771524607066!5m2!1sen!2sin"
+    className="w-full h-full"
+    style={{ border: 0 }}
+    allowFullScreen
+    loading="lazy"
+    referrerPolicy="no-referrer-when-downgrade"
+    title="Hyderabad Location"
+  />
+</div>
+
             </div>
 
             {/* Google Form embed */}

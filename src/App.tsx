@@ -1,8 +1,10 @@
+import { useEffect } from "react";
+import { useLocation, BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Index from "./pages/Index";
@@ -24,6 +26,17 @@ import Internship from "./pages/services/Internship";
 
 const queryClient = new QueryClient();
 
+/* ✅ Scroll To Top Component (inside same file) */
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // instantly scroll to top
+  }, [pathname]);
+
+  return null;
+}
+
 function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="min-h-screen flex flex-col">
@@ -40,6 +53,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop /> {/* ✅ Added here */}
         <Routes>
           <Route path="/" element={<Layout><Index /></Layout>} />
           <Route path="/careers" element={<Layout><Careers /></Layout>} />

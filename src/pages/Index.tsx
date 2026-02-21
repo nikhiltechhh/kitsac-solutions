@@ -64,6 +64,25 @@ function RevealSection({ children, className = "", direction = "up", delay = 0 }
 export default function Index() {
   return (
     <main>
+      <style>{`
+        @keyframes heroZoom {
+          from { background-size: 135%; }
+          to   { background-size: 108%; }
+        }
+        @keyframes heroZoomMobile {
+          from { background-size: 250%; }
+          to   { background-size: 190%; }
+        }
+        .hero-section {
+          animation: heroZoom 12s ease-out forwards;
+        }
+        @media (max-width: 767px) {
+          .hero-section {
+            background-size: 250% !important;
+            animation: heroZoomMobile 12s ease-out forwards !important;
+          }
+        }
+      `}</style>
       {/* Ticker */}
       <div className="overflow-hidden py-3 border-b border-white/10" style={{ backgroundColor: "hsl(220 20% 10%)" }}>
         <div className="ticker-track">
@@ -76,37 +95,53 @@ export default function Index() {
       </div>
 
       {/* Hero */}
-      <section className="relative min-h-[88vh] flex items-center" style={{ backgroundImage: `url(${heroBg})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+      <section
+        className="relative flex items-center hero-section"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: "135%",
+          backgroundPosition: "center",
+          minHeight: "clamp(360px, 62vh, 650px)",
+        }}
+      >
         <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, hsl(220 20% 6% / 0.90) 0%, hsl(210 68% 28% / 0.72) 100%)" }} />
         <div className="absolute top-12 left-8 w-52 h-52 dot-pattern opacity-25 hidden md:block" />
         <div className="absolute bottom-16 right-8 w-44 h-44 dot-pattern-orange opacity-20 hidden md:block" />
 
-        <div className="container mx-auto relative z-10 py-24">
+        <div className="container mx-auto relative z-10 py-8 sm:py-12 md:py-16">
           <div className="max-w-4xl">
             {/* Badges */}
-            <div className="flex flex-wrap gap-2 mb-8">
+            <div className="flex flex-wrap gap-2 mb-5 sm:mb-8">
               {["STARTUPINDIA", "DPIIT", "MSME"].map((b) => (
                 <span key={b} className="bg-white/15 border border-white/30 text-white text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full backdrop-blur-sm" style={{ fontFamily: "Oswald, sans-serif" }}>
                   ✓ {b}
                 </span>
               ))}
             </div>
-            <p className="font-semibold uppercase tracking-[0.25em] text-sm mb-4" style={{ color: "hsl(27 95% 65%)", fontFamily: "Oswald, sans-serif" }}>
+            <p className="font-semibold uppercase tracking-[0.25em] text-xs sm:text-sm mb-3 sm:mb-4" style={{ color: "hsl(27 95% 65%)", fontFamily: "Oswald, sans-serif" }}>
               Your Reliable Technology Partner
             </p>
-            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl text-white uppercase leading-[0.95] mb-6 tracking-wide">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-white uppercase leading-[0.95] mb-4 sm:mb-6 tracking-wide">
               Innovative IT<br />
               <span style={{ color: "hsl(var(--brand-orange))" }}>Solutions</span><br />
-              <span className="text-4xl md:text-5xl lg:text-6xl text-white/80">for Every Business</span>
+              <span className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white/80">for Every Business</span>
             </h1>
-            <p className="text-white/70 text-base md:text-lg max-w-2xl leading-relaxed mb-10" style={{ fontFamily: "Inter, sans-serif" }}>
+            <p className="text-white/70 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed mb-7 sm:mb-10" style={{ fontFamily: "Inter, sans-serif" }}>
               KITSAC IT Solutions delivers cutting-edge technology services — from pharmaceutical IT to custom web applications, BPO, and beyond.
             </p>
-            <div className="flex flex-wrap gap-4">
-              <Link to="/contact" className="bg-brand-orange text-white font-semibold uppercase tracking-widest text-sm px-8 py-4 rounded flex items-center gap-2 hover:bg-brand-blue transition-all duration-300 hover:gap-3" style={{ fontFamily: "Oswald, sans-serif" }}>
+            <div className="flex flex-wrap gap-3 sm:gap-4">
+              <Link
+                to="/contact"
+                className="bg-brand-orange text-white font-semibold uppercase tracking-widest text-xs sm:text-sm px-6 sm:px-8 py-3 sm:py-4 rounded flex items-center gap-2 hover:bg-brand-blue transition-all duration-300 hover:gap-3"
+                style={{ fontFamily: "Oswald, sans-serif" }}
+              >
                 Get In Touch <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/services/it-consulting" className="border-2 border-white/40 text-white font-semibold uppercase tracking-widest text-sm px-8 py-4 rounded hover:border-white hover:bg-white/10 transition-all duration-300" style={{ fontFamily: "Oswald, sans-serif" }}>
+              <Link
+                to="/services/it-consulting"
+                className="border-2 border-white/40 text-white font-semibold uppercase tracking-widest text-xs sm:text-sm px-6 sm:px-8 py-3 sm:py-4 rounded hover:border-white hover:bg-white/10 transition-all duration-300"
+                style={{ fontFamily: "Oswald, sans-serif" }}
+              >
                 Explore Services
               </Link>
             </div>
@@ -123,18 +158,18 @@ export default function Index() {
       </section>
 
       {/* Stats */}
-      <section className="bg-gradient-stats relative overflow-hidden py-20">
+      <section className="bg-gradient-stats relative overflow-hidden py-12 sm:py-16">
         <div className="absolute left-0 top-0 w-72 h-72 dot-pattern opacity-20" />
         <div className="absolute right-0 bottom-0 w-72 h-72 dot-pattern-orange opacity-15" />
         <div className="container mx-auto relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-4 gap-3 sm:gap-6 md:gap-8">
             {stats.map((s, i) => (
               <RevealSection key={i} delay={i * 100}>
                 <div className="text-center">
-                  <div className="w-10 h-0.5 bg-brand-orange mx-auto mb-4" />
-                  <p className="font-display text-5xl md:text-6xl text-white">{s.value}</p>
-                  <p className="text-white/80 font-semibold text-xs uppercase tracking-widest mt-2" style={{ fontFamily: "Oswald, sans-serif" }}>{s.label}</p>
-                  <p className="text-white/50 text-xs mt-1">{s.sub}</p>
+                  <div className="w-6 sm:w-10 h-0.5 bg-brand-orange mx-auto mb-2 sm:mb-4" />
+                  <p className="font-display text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white">{s.value}</p>
+                  <p className="text-white/80 font-semibold text-[9px] sm:text-xs uppercase tracking-wide sm:tracking-widest mt-1 sm:mt-2 leading-tight" style={{ fontFamily: "Oswald, sans-serif" }}>{s.label}</p>
+                  <p className="text-white/50 text-[8px] sm:text-xs mt-0.5 sm:mt-1 hidden sm:block">{s.sub}</p>
                 </div>
               </RevealSection>
             ))}
@@ -218,25 +253,31 @@ export default function Index() {
       </section>
 
       {/* Recognition */}
-      <section className="py-20 border-t border-border">
+      <section className="py-12 sm:py-16 border-t border-border">
         <div className="container mx-auto">
           <RevealSection className="text-center mb-12">
             <span className="section-label mx-auto block mb-4" />
             <h2 className="font-display text-3xl md:text-5xl text-foreground uppercase">Approved & Recognized</h2>
             <p className="text-muted-foreground mt-3 text-sm">Certified by India's top regulatory and innovation bodies</p>
           </RevealSection>
-          <div className="flex flex-wrap items-center justify-center gap-10 md:gap-20">
-            {[{ name: "STARTUPINDIA", emoji: "🇮🇳" }, { name: "DPIIT", emoji: "🏛️" }, { name: "MSME", emoji: "🏭" }].map((org, i) => (
-              <RevealSection key={org.name} delay={i * 100}>
-                <div className="flex flex-col items-center gap-3 group cursor-default">
-                  <div className="w-24 h-24 rounded-2xl border-2 border-border group-hover:border-brand-blue transition-all duration-300 flex items-center justify-center text-4xl shadow-card bg-white group-hover:shadow-lg group-hover:-translate-y-1">
-                    {org.emoji}
-                  </div>
-                  <span className="font-display text-sm uppercase tracking-widest text-muted-foreground group-hover:text-brand-blue transition-colors">{org.name}</span>
-                </div>
-              </RevealSection>
-            ))}
-          </div>
+        <div className="flex flex-wrap items-center justify-center gap-8">
+  {[
+    { name: "STARTUPINDIA", logo: "https://crystalpng.com/wp-content/uploads/2025/01/startup-india-logo-gradient-circle.png" },
+    { name: "DPIIT", logo: "https://indiashippingnews.com/wp-content/uploads/2023/01/DPIIT.webp" },
+    { name: "MSME", logo: "https://msmedinagpur.gov.in/assets/emblem-dark-CWvnlyPE.png" }
+  ].map((org, i) => (
+    <div key={i} className="flex flex-col items-center gap-2">
+      <img
+        src={org.logo}
+        alt={org.name}
+        className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 object-contain"
+      />
+      <span className="text-xs sm:text-sm font-semibold tracking-wide text-center">
+        {org.name}
+      </span>
+    </div>
+  ))}
+</div>
         </div>
       </section>
 

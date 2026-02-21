@@ -28,13 +28,13 @@ export default function Footer() {
             KITSAC IT Solutions Pvt. Ltd. — Your trusted technology partner delivering innovative solutions across India.
           </p>
           <div className="flex items-center gap-3">
-            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors">
+            <a href="https://www.linkedin.com/company/kitsac-it-sloultions" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors">
               <Linkedin className="w-4 h-4" />
             </a>
-            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors">
+            {/* <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors">
               <Twitter className="w-4 h-4" />
-            </a>
-            <a href="#" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors">
+            </a> */}
+            <a href="https://www.instagram.com/p/DS8CXDSjywI/" className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-blue transition-colors">
               <Instagram className="w-4 h-4" />
             </a>
           </div>
@@ -83,7 +83,10 @@ export default function Footer() {
             <li>
               <div className="flex items-start gap-3 text-white/60 text-sm">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0 text-brand-blue" />
-                Hyderabad, Telangana, India — 500001
+                KITSAC IT Solutions Pvt Ltd
+4th floor, plot no 459, 100 Feet Rd, beside ysr statue, Ayyappa Society, Chanda Naik Nagar, Madhapur, Hyderabad, Telangana 500081
+
+
               </div>
             </li>
             <li>
