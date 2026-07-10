@@ -11,8 +11,8 @@ const services = [
 ];
 
 const products = [
-  { name: "10 Minutes Delivery", href: "/products/ten-min-delivery" },
-  { name: "Bachelor Wallet", href: "/products/bachelor-wallet" },
+  { name: "10 Minutes Delivery", href: "https://coming-soon-ceyh.vercel.app/" },
+  { name: "Bachelor Wallet", href: "https://bachelor-wallet.vercel.app/" },
   { name: "Store & Billing Management", href: "/products/store-billing" },
 ];
 
