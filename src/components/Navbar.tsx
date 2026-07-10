@@ -11,13 +11,13 @@ const products = [
   },
   {
     name: "Bachelor Wallet",
-    href: "/products/bachelor-wallet",
-    external: false,
+    href: "https://bachelor-wallet.vercel.app/",
+    external: true,
   },
   {
     name: "Store & Billing Management",
-    href: "https://bachelor-wallet.vercel.app/",
-    external: true,
+    href: "/products/store-billing",
+    external: false,
   },
 ];
 
@@ -121,16 +121,27 @@ export default function Navbar() {
                   className="absolute top-full left-0 mt-2 w-64 bg-white shadow-xl border border-border rounded-lg overflow-hidden z-50"
                   onMouseLeave={() => setProductsOpen(false)}
                 >
-                  {products.map((p) => (
-                    <Link
-                      key={p.href}
-                      to={p.href}
-                      className="flex items-center gap-3 px-5 py-3.5 text-sm font-semibold text-foreground hover:bg-brand-blue hover:text-white transition-colors border-b border-border last:border-0"
-                    >
-                      <span className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0" />
-                      {p.name}
-                    </Link>
-                  ))}
+                 {products.map((p) =>
+  p.external ? (
+    <a
+      key={p.href}
+      href={p.href}
+      className="flex items-center gap-3 px-5 py-3.5 text-sm font-semibold text-foreground hover:bg-brand-blue hover:text-white transition-colors border-b border-border last:border-0"
+    >
+      <span className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0" />
+      {p.name}
+    </a>
+  ) : (
+    <Link
+      key={p.href}
+      to={p.href}
+      className="flex items-center gap-3 px-5 py-3.5 text-sm font-semibold text-foreground hover:bg-brand-blue hover:text-white transition-colors border-b border-border last:border-0"
+    >
+      <span className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0" />
+      {p.name}
+    </Link>
+  )
+)}
                 </div>
               )}
             </div>
