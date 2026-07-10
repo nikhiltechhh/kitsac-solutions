@@ -4,9 +4,21 @@ import { ChevronDown, Menu, X, Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/kitsac-logo.png";
 
 const products = [
-  { name: "10 Minutes Delivery", href: "/products/ten-min-delivery" },
-  { name: "Bachelor Wallet", href: "/products/bachelor-wallet" },
-  { name: "Store & Billing Management", href: "/products/store-billing" },
+  {
+    name: "10 Minutes Delivery",
+    href: "https://coming-soon-ceyh.vercel.app/",
+    external: true,
+  },
+  {
+    name: "Bachelor Wallet",
+    href: "/products/bachelor-wallet",
+    external: false,
+  },
+  {
+    name: "Store & Billing Management",
+    href: "https://bachelor-wallet.vercel.app/",
+    external: true,
+  },
 ];
 
 const services = [
