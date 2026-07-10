@@ -28,8 +28,8 @@ const services = [
 ];
 
 const products = [
-  { icon: <Clock className="w-8 h-8" />, title: "10 Minutes Delivery", desc: "Ultra-fast hyperlocal delivery platform bringing essentials to your doorstep in minutes", href: "/products/ten-min-delivery" },
-  { icon: <Wallet className="w-8 h-8" />, title: "Bachelor Wallet", desc: "Smart financial management app designed for students and young professionals", href: "/products/bachelor-wallet" },
+  { icon: <Clock className="w-8 h-8" />, title: "10 Minutes Delivery", desc: "Ultra-fast hyperlocal delivery platform bringing essentials to your doorstep in minutes", href: "https://coming-soon-ceyh.vercel.app/" },
+  { icon: <Wallet className="w-8 h-8" />, title: "Bachelor Wallet", desc: "Smart financial management app designed for students and young professionals", href: "https://bachelor-wallet.vercel.app/" },
   { icon: <Store className="w-8 h-8" />, title: "Store & Billing Management", desc: "Complete retail management and POS solution for modern businesses", href: "/products/store-billing" },
 ];
 
