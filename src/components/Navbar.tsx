@@ -217,11 +217,25 @@ export default function Navbar() {
                 <ChevronDown className={`w-4 h-4 transition-transform ${mobileProductsOpen ? "rotate-180" : ""}`} />
               </button>
               <div className={`overflow-hidden transition-all duration-300 ${mobileProductsOpen ? "max-h-64" : "max-h-0"}`}>
-                {products.map((p) => (
-                  <Link key={p.href} to={p.href} className="block py-2 pl-4 text-sm font-semibold text-muted-foreground hover:text-brand-blue">
-                    — {p.name}
-                  </Link>
-                ))}
+                {products.map((p) =>
+  p.external ? (
+    <a
+      key={p.href}
+      href={p.href}
+      className="block py-2 pl-4 text-sm font-semibold text-muted-foreground hover:text-brand-blue"
+    >
+      — {p.name}
+    </a>
+  ) : (
+    <Link
+      key={p.href}
+      to={p.href}
+      className="block py-2 pl-4 text-sm font-semibold text-muted-foreground hover:text-brand-blue"
+    >
+      — {p.name}
+    </Link>
+  )
+)}
               </div>
             </div>
 
